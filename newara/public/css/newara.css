@@ -1,5 +1,6 @@
-:root {
+/*:root {
 	--bg-color:  #e5e8eb;
+	--bg-color:  #d9d9ff ;
 	--btn-primary: #714B67;
 	--btn-secondary: #017E8480;
 	--secondary: #017E84;
@@ -9,7 +10,46 @@
 	--btn-default-hover-bg: white;
 	--sidebar-select-color: #017E8420;
 	--checkbox-gradient: linear-gradient(180deg, var(--btn-primary) -124.51%, var(--btn-primary) 100%);
-	--text-base: 14px;
+	--text-base: 16px;
+	--text-sm: 14px;
+}*/
+
+:root {
+        /* Arrière-plan global de la page (effet gris chaud/beige clair sous le formulaire) */
+        --bg-color: #f4f3ef; 
+
+        /* Couleur de la marque / Boutons principaux (Bleu sarcelle / Teal foncé) */
+        --btn-primary: #0f766e;
+        
+        /* Boutons secondaires et accents */
+        --btn-secondary: rgba(15, 118, 110, 0.5); /* #0f766e avec 50% d'opacité */
+        --secondary: #0d9488;
+
+        /* Barre supérieure (Navbar globale harmonisée avec la couleur de la marque) */
+        --navbar-bg: #0f766e;
+
+        /* Texte des boutons principaux */
+        --text-btn-color: white;
+
+        /* Bordures des tableaux et séparateurs */
+        --table-border-color: rgba(15, 118, 110, 0.25);
+
+        /* Comportement au survol des boutons par défaut */
+        --btn-default-hover-bg: #ffffff;
+
+        /* Couleur de l'élément sélectionné dans la barre latérale */
+        --sidebar-select-color: rgba(13, 148, 136, 0.2);
+
+        --sidebar-active-color: #000;
+        --sidebar-hover-color: #000;
+
+        /* Dégradé des cases à cocher basé sur le bleu sarcelle */
+        --checkbox-gradient: linear-gradient(180deg, var(--btn-primary) -124.51%, var(--btn-primary) 100%);
+
+        /* Tailles de texte de base */
+        --text-base: 16px;
+        --text-sm: 14px;
+        --surface-menu-bar: #1e293b;        
 }
 
 /* login page */
@@ -91,7 +131,7 @@
 
 
 [data-path="login"] {
-    background-image: url(/assets/css/bgdemo.jpg);
+    background-image: url(/assets/newara/css/bgdemo.jpg);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -104,8 +144,28 @@
 .navbar .navbar-expand li a,
 #navbar-breadcrumbs a,
 .navbar .nav-item button.nav-link{ 
-	color: var(--btn-default-hover-bg) !important;
+    color: var(--btn-default-hover-bg) !important;
 
+}
+
+.navbar-breadcrumbs li a {
+    color: #84dad7 !important; 
+    text-decoration: none;
+    transition: color 0.2s ease-in-out;
+}
+
+.navbar-breadcrumbs li:last-child > a {
+    color: #a9efed !important; 
+}
+
+.navbar-breadcrumbs .icon {
+    stroke: #84dad7 !important;
+}
+
+.navbar-breadcrumbs li a:hover,
+.navbar-breadcrumbs .icon:hover  {
+   color: #a9efed !important;
+   text-decoration: none;
 }
 
 #navbar-breadcrumbs li.disabled a {
@@ -116,6 +176,13 @@
 	border:none;
 }
 
+.navbar-breadcrumbs li::before, 
+.navbar-breadcrumbs li::after,
+.breadcrumb-item::before {
+    color: #0d9488 !important; /* Le même vert lumineux que vos libellés */
+    opacity: 1 !important;
+}
+
 .search-bar span {
 	color: var(--neutral-black) !important;
 }
@@ -123,11 +190,20 @@
 /* PAGE DESIGN */
 
 body .page-container { 
-	background-color: var(--bg-color) !important;
+	background: none !important;
+}
+
+.main-section {
+    background: linear-gradient(-45deg, var(--gray-100), var(--purple-400)) !important;
 }
 
 .page-head { 
-	background-color: white !important;
+	background-color: var(--navbar-bg) !important;
+}
+
+.page-wrapper {
+    height: 100vh;
+    background: var(--green-100) !important;
 }
 
 .es-icon {
@@ -262,6 +338,7 @@ input[type="checkbox"]:checked {
 }
 
 .btn.btn-primary{
+	background: #714b67 !important;
 	color: var(--text-btn-color);
 	border: solid 2px #714b67 !important;
 }
@@ -272,16 +349,17 @@ input[type="checkbox"]:checked {
 	color: var(--text-color);
   }
 
-.standard-actions .btn.btn-secondary{
-	background: var(--secondary) !important;
+.standard-actions .btn.btn-secondary, .timeline-content .btn.btn-secondary {
+	background-color: var(--secondary) !important;
         border: solid 2px var(--secondary) !important;
-	color: var(--text-btn-color);
+	color: var(--text-color);
 }
 
-.standard-actions .btn.btn-secondary:hover{
+.standard-actions .btn.btn-secondary:hover, 
+.timeline-content .btn.btn-secondary:hover {
 	background: var(--btn-default-hover-bg) !important;
     	border: solid 2px var(--secondary) !important;
-	color: var(--text-color);
+	color: var(--text-btn-color);
 }
 
 .custom-actions .btn.btn-default{
@@ -327,7 +405,7 @@ input[type="checkbox"]:checked {
 }
 
 .custom-actions .btn{
-	font-size: 12px !important;
+	font-size: 14px !important;
 }
 
 .btn-group > .btn:not(:last-child):not(.dropdown-toggle), div#driver-popover-item .driver-popover-footer .btn-group > button:not(:last-child):not(.dropdown-toggle), .btn-group > .btn-group:not(:last-child) > .btn, div#driver-popover-item .driver-popover-footer .btn-group > .btn-group:not(:last-child) > button {
@@ -413,4 +491,31 @@ input[type="checkbox"]:checked {
 
 .frappe-alert[data-alert-type="indicator-red"] {
     border-left: 5px solid #e74c3c;
+}
+
+
+.layout-main-section-wrapper {
+   /* background-color: var(--gray-300) !important;*/
+}
+
+.layout-side-section {
+    background-color: var(--gray-100) !important;    
+}
+
+.frappe-menu {
+    background-color: var(--surface-menu-bar) !important;
+    color: #f1f5f9; 
+}
+
+.frappe-menu .icon{
+    stroke: #f1f5f9;
+}
+
+.title-container, .title-container .header-subtitle, .text-ink-gray-7,
+.sidebar-item-label, .avatar-name-email   {
+    color: #f1f5f9 !important;
+}
+
+.text-secondary {
+  color: #ccc !important;
 }
