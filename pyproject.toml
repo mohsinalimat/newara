@@ -1,6 +1,6 @@
 [project]
 name = "newara"
-version = "1.2.4"
+version = "1.2.5"
 description = "Description of your app"
 dependencies = [
     "frappe",
